@@ -30,23 +30,14 @@ public class Information{
     }
 
     public void ExchangeMoney(){
-        if(moneyValue == "."){
-            string[] partstring = moneyValue.Split('.');
-            int intergerpart = CheckTypeInterger(partstring[0]);
-            int decemalpart = CheckTypeDecemal(partstring[1]);
-            if(SpecialDecimal(decemalpart)) decemalpart *= 100;
-            if(CheckInteger(intergerpart) && CheckDecimal(decemalpart) && SpecialDecimal(decemalpart)) throw new Exception("Wrong!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-            else {
-                Calculater(intergerpart, decemalpart);
-                PrintCalculator();
-            }
-        }
-        else{
-            if(CheckInteger(CheckTypeInterger(moneyValue))) throw new Exception("Wrong!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-            else {
-                Calculater(CheckTypeInterger(moneyValue));
-                PrintCalculator();
-            }
+        string[] partstring = moneyValue.Split('.');
+        int intergerpart = CheckTypeInterger(partstring[0]);
+        int decemalpart = CheckTypeDecemal(partstring[1]);
+        if(SpecialDecimal(decemalpart)) decemalpart *= 100;
+        if(CheckInteger(intergerpart) && CheckDecimal(decemalpart) && SpecialDecimal(decemalpart)) throw new Exception("Wrong!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        else {
+            Calculater(intergerpart, decemalpart);
+            PrintCalculator();
         }
     }
 
@@ -100,28 +91,6 @@ public class Information{
         return false;
     }
 
-    public void Calculater(int intergerpart){
-        thousand = intergerpart / 1000;
-        intergerpart %= 1000;
-        fiveHundred = intergerpart / 500;
-        intergerpart %= 500;
-        oneHundred = intergerpart / 100;
-        intergerpart %= 100;
-        fifthy = intergerpart / 50;
-        intergerpart %= 50;
-        twenty = intergerpart / 20;
-        intergerpart %= 20;
-        ten = intergerpart / 10;
-        intergerpart %= 10;
-        two = intergerpart / 2;
-        intergerpart %= 2;
-        one = intergerpart / 1;
-        intergerpart %= 1;
-        pointfifty = intergerpart / 50;
-        intergerpart %= 50;
-        pointtwentyfive = intergerpart / 25;
-        intergerpart %= 25;
-    }
     public void Calculater(int intergerpart, int decimalpart){
         thousand = intergerpart / 1000;
         intergerpart %= 1000;
