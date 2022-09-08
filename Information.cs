@@ -1,5 +1,3 @@
-using System.Globalization;
-
 public class Information{
     string name;
     double vat;
@@ -38,15 +36,6 @@ public class Information{
         else {
             Calculater(intergerpart, decemalpart);
             PrintCalculator();
-        }
-    }
-
-    public int ChangeTypeInt(string intergerpart){
-        if(int.TryParse(intergerpart, out int num)){
-            return num;
-        }
-        else{
-            throw new Exception("Not Interger");
         }
     }
 
